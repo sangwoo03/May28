@@ -1,66 +1,100 @@
 <html>
 	<head>
-		<style>
-			body{
-				text-align:center;
-			}
-			.bt{
-				width:19%;
-				height:10%;
-				background-color:violet;
-				font-size:3em;
-				color:white;
-				font-weight:bold;
-			}
-			.txt{
-				width:30%;
-				height:10%;
-				font-size:4em;
-				font-weight:bold;
-				color:red;
-				text-align:center;
-				
-			}
-			.hh{
-				font-size:6em;
-				font-weight:bold;
-				color:green;
-			}
-			#txt1{
-				
-			}
-		</style>
+        <style>
+            body{
+                text-align:center;
+            }
+            h1{
+                color:greenyellow;
+                font-size: 4em;
+            }
+            button{
+                width: 20%;
+                height: 10%;
+                font-size: 2em;
+                color: red;
+                background-color: pink;
+            }
+        </style>
 	</head>
 	<body>
-		<h1 class='hh'>자바스크립트 연습</h1><br>
-		<input type='text' class='txt' id='txt1'><br><br><br>
-		<button class='bt' onclick='btn1_fnc();'> 1</button>
-		<button class='bt' onclick='btn2_fnc();'> 2</button>
-		<button class='bt' onclick='btn3_fnc();'> 3</button>
-		<button class='bt' onclick='btn4_fnc();'> 4</button>
-		<button class='bt' onclick='btn5_fnc();'> 5</button>
-		
-		<script>
-			function btn1_fnc()
-			{
-				document.getElementById('txt1').value ='1';
-			}
-			function btn2_fnc()
-			{
-				document.getElementById('txt1').value ='2';
-			}
-			function btn3_fnc()
-			{
-				document.getElementById('txt1').value ='3';
-			}
-			function btn4_fnc()
-			{
-				document.getElementById('txt1').value ='4';
-			}
-			function btn5_fnc()
-			{
-				document.getElementById('txt1').value ='5';
-			}
-		</script>
-	</body>
+        <h1>시퀀스 2개</h1>
+        <img id='img1'src='20.png'>
+        <img id='img2'src='21.png'><br><Br><br>
+
+        <button onclick="seq1();">1번 시작</button>
+        <button onclick="seq1_pause();">1번 멈춤</button>
+        <button onclick="seq2();">2번 시작</button>    
+        <button onclick="seq2_pause();">2번 멈춤</button>
+            
+        <script>
+            setInterval(timer1,1000);
+            setInterval(timer2,1000);
+            var step1=0;
+            var step2=0;  
+            function timer1()
+            {
+                switch(step1){
+                    case 1:
+                        document.getElementById('img1').src='10.png';
+                        step1=2;
+                    break
+                    case 2:
+                        document.getElementById('img1').src='21.png';
+                        step1=3;
+                    break    
+                    case 3:
+                        document.getElementById('img1').src='22.png';
+                        step1=4;
+                     break    
+                    case 4:
+                        document.getElementById('img1').src='23.png';
+                        step1=1;
+                    break    
+                    case 9:
+                    break
+                }
+            } 
+            function timer2(){
+                    switch(step2){
+                    case 10:
+                        document.getElementById('img2').src='31.png';
+                        step2=11;
+                    break
+                    case 11:
+                        document.getElementById('img2').src='32.png';
+                        step2=12;
+                    break
+                    case 12:
+                        document.getElementById('img2').src='33.png';
+                        step2=13;
+                    break
+                    case 13:
+                        document.getElementById('img2').src='34.png';
+                        step2=10;
+                    break
+                    case 19:
+                    break
+                    }
+                }
+            function seq1()
+            {
+                step1=1;
+            }
+            function seq1_pause()
+            {
+               
+                step1=9;
+            }
+            function seq2()
+            {
+                step2=10;
+            }
+            function seq2_pause()
+            {
+               
+                step2=19;
+            }
+        </script>
+    </body>
 </html>
